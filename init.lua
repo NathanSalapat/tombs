@@ -3,11 +3,19 @@ tombs = {}
 
 minetest.register_node('tombs:machine', {
    description = 'Gravestone Engraver',
-   tiles = {'tombs_machine_1.png'},
+   tiles = {
+      'tombs_machine_side.png',
+      'tombs_machine_side.png',
+      'tombs_machine_side.png',
+      'tombs_machine_side.png',
+      'tombs_machine_side.png',
+      'tombs_machine_front.png',
+   },
    groups = {oddly_breakable_by_hand=3},
+   paramtype2 = 'facedir',
    on_construct = function(pos)
       local meta = minetest.get_meta(pos)
-      meta:set_string('infotext', 'pizza machine')
+      meta:set_string('infotext', 'Gravestone Creator')
       meta:set_string('formspec', 'size[8,7.5]'..
       'list[context;tool;0,0;1,1]'..
       'label[1,0;Tool/Bones]'..
