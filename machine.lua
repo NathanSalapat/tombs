@@ -20,7 +20,6 @@ minetest.register_node('tombs:machine', {
       inv:set_size('tool', 1)
       inv:set_size('input', 1)
       inv:set_size('output', 15)
---      inv:add_item('output', 'default:dirt 20')
    end,
    on_receive_fields = function(pos, formname, fields, sender)
       local meta = minetest.get_meta(pos)
@@ -29,9 +28,11 @@ minetest.register_node('tombs:machine', {
       local input = input_stack:get_name()
       if fields ['offset'] then
          meta:set_string('formspec', machine_formspec_offset)
+         meta:set_string('var', 1)
          inv:set_list('output', tombs.crafting(input, 1))
       elseif fields ['centered'] then
          meta:set_string('formspec', machine_formspec_centered)
+         meta:set_string('var', 0)
          inv:set_list('output', tombs.crafting(input, 0))
       end
    end,
@@ -78,12 +79,15 @@ minetest.register_node('tombs:machine', {
    on_metadata_inventory_take = function(pos, listname, index, stack, player)
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
-      local input = inv:get_stack('input', 1)
+      local input_stack = inv:get_stack('input', 1)
+      local input = input_stack:get_name()
+      local var = meta:get_string('var')
       if listname == 'input' then
          inv:set_list('output', {})
       elseif listname == 'output' then
-         input:take_item(1)
-         inv:set_stack('input',1,input)
+         input_stack:take_item(1)
+         inv:set_stack('input',1,input_stack)
+         inv:set_list('output', tombs.crafting(input, var))
       end
    end,
 })
