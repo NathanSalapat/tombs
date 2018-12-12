@@ -1,7 +1,7 @@
 machine_formspec_centered =
 'size[8,7.5]'..
 'list[context;tool;0,0;1,1]'..
-'label[1,0;Tool/Bones]'..
+'label[1,0;Bones]'..
 'list[context;input;0,1;1,1]'..
 'label[1,1;Material]'..
 'label[0,2;Click to change to offset versions.]'..
@@ -12,7 +12,7 @@ machine_formspec_centered =
 machine_formspec_offset =
 'size[8,7.5]'..
 'list[context;tool;0,0;1,1]'..
-'label[1,0;Tool/Bones]'..
+'label[1,0;Bones]'..
 'list[context;input;0,1;1,1]'..
 'label[1,1;Material]'..
 'label[0,2;Click to change to centered versions.]'..
