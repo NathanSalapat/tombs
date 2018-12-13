@@ -1,7 +1,11 @@
 function tombs.register_stones(recipe, name, desc, textures)
 shapes = { --mesh identifier, shape, col
    {'_0', 'Rectangle', colbox_0_0, colbox_0_1},
-   {'_1', 'Cross', colbox_1_0, colbox_1_1}
+   {'_1', 'Cross', colbox_1_0, colbox_1_1},
+   {'_2', 'Pointed', colbox_0_0, colbox_0_1},
+   {'_3', 'Short Slanted', colbox_3_0, colbox_3_1},
+   {'_4', 'Short Flat', colbox_4_0, colbox_4_1},
+   {'_5', 'Fancy Cross', colbox_5_0, colbox_5_1}
    }
 
 for i in ipairs (shapes) do
@@ -61,6 +65,9 @@ end
 
 function tombs.crafting(input, var)
    local name = tombs.recipes[input]
-   output = {'tombs:'..name..'_0_'..var, 'tombs:'..name..'_1_'..var}
+   output =
+   {'tombs:'..name..'_0_'..var, 'tombs:'..name..'_1_'..var, 'tombs:'..name..'_2_'..var,
+    'tombs:'..name..'_3_'..var, 'tombs:'..name..'_4_'..var, 'tombs:'..name..'_5_'..var,
+    }
    return output
 end
