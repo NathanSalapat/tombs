@@ -1,5 +1,5 @@
 code:
-CC0 Nathan Salapat
+GNU GPLv3 Nathan Salapat
 
 Media:
 Gravestone Machine texture:

@@ -1,0 +1,2 @@
+tombs.load_wool (Support wool mod?) bool true
+tombs.load_default (Support default mod?) bool true
