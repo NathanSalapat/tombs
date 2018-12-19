@@ -1,3 +1,12 @@
+minetest.register_craft({
+   output = 'tombs:machine',
+   recipe = {
+      {'default:stone', 'default:stone', 'default:stone'},
+      {'default:steel_ingot', 'default:diamond', 'default:steel_ingot'},
+      {'default:stone', 'default:stone', 'default:stone'}
+   }
+})
+
 minetest.register_node('tombs:machine', {
    description = 'Gravestone Engraver',
    tiles = {
@@ -14,6 +23,7 @@ minetest.register_node('tombs:machine', {
       local meta = minetest.get_meta(pos)
       meta:set_string('infotext', 'Gravestone Creator')
       meta:set_string('formspec', machine_formspec_centered)
+      meta:set_string('var', 0)
       local inv = meta:get_inventory()
       inv:set_size('tool', 1)
       inv:set_size('input', 1)
@@ -27,12 +37,10 @@ minetest.register_node('tombs:machine', {
       if fields ['offset'] then
          meta:set_string('formspec', machine_formspec_offset)
          meta:set_string('var', 1)
---         inv:set_list('output', tombs.crafting(input, 1))
          tombs.populate_output(pos)
       elseif fields ['centered'] then
          meta:set_string('formspec', machine_formspec_centered)
          meta:set_string('var', 0)
---         inv:set_list('output', tombs.crafting(input, 0))
          tombs.populate_output(pos)
       end
    end,
@@ -67,17 +75,8 @@ minetest.register_node('tombs:machine', {
          return 0
       end
    end,
-   on_metadata_inventory_put = function(pos, listname, index, stack, player)
-      local meta = minetest.get_meta(pos)
-      local inv = meta:get_inventory()
-      local input_stack = inv:get_stack('input', 1)
-      local tool_stack = inv:get_stack('tool', 1)
-      local input = input_stack:get_name()
-      if listname == 'input' and tool_stack:get_name() == ('bones:bones') then
-         inv:set_list('output', tombs.crafting(input, 0))
-      elseif listname == 'tool' and tombs.nodes[input] then
-         inv:set_list('output', tombs.crafting(input, 0))
-      end
+   on_metadata_inventory_put = function(pos)
+      tombs.populate_output(pos)
    end,
    on_metadata_inventory_take = function(pos, listname, index, stack, player)
       local meta = minetest.get_meta(pos)
@@ -115,5 +114,7 @@ function tombs.populate_output(pos)
    local var = meta:get_string('var')
    if tombs.nodes[input] and tool_stack:get_name() == ('bones:bones') then
       inv:set_list('output', tombs.crafting(input, var))
+   else
+      inv:set_list('output', {})
    end
 end

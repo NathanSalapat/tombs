@@ -4,8 +4,8 @@ machine_formspec_centered =
 'label[1,0;Bones]'..
 'list[context;input;0,1;1,1]'..
 'label[1,1;Material]'..
-'label[0,2;Click to change to offset versions.]'..
-'button[0,2.5;2,1;offset;Offset]'..
+'label[0,2;Click to switch to offset versions.]'..
+'button[0,2.5;2,1;offset;Switch]'..
 'list[current_name;output;3,0;5,3]'..
 'list[current_player;main;0,3.5;8,4]'
 
@@ -15,8 +15,8 @@ machine_formspec_offset =
 'label[1,0;Bones]'..
 'list[context;input;0,1;1,1]'..
 'label[1,1;Material]'..
-'label[0,2;Click to change to centered versions.]'..
-'button[0,2.5;2,1;centered;Centered]'..
+'label[0,2;Click to switch to centered versions.]'..
+'button[0,2.5;2,1;centered;Switch]'..
 'list[current_name;output;3,0;5,3]'..
 'list[current_player;main;0,3.5;8,4]'
 
