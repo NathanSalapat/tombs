@@ -47,3 +47,38 @@ colbox_5_1 ={ --Offset Fancy Cross
    type = 'fixed',
    fixed = {{-.3125, -.5, .1875, .3125, .4375, .375}}
 }
+
+colbox_6_0 ={ --Centered Staggered
+   type = 'fixed',
+   fixed = {{-.375, -.5, -.125, .375, .375, .125}}
+}
+
+colbox_6_1 ={ --Offset Staggered
+   type = 'fixed',
+   fixed = {{-.375, -.5, .125, .375, .375, .375}}
+}
+
+colbox_7_0 ={ --Centered Celtic Cross
+   type = 'fixed',
+   fixed = {{-.3125, -.5, -.0625, .3125, .4375, .0625}}
+}
+
+colbox_7_1 ={ --Offset Celtic Cross
+   type = 'fixed',
+   fixed = {{-.3125, -.5, .1875, .3125, .4375, .3125}}
+}
+
+colbox_8_0 ={ --Centered Obelisk
+   type = 'fixed',
+   fixed = {{-.3125, -.5, -.3125, .3125, .5, .3125}}
+}
+
+colbox_8_1 ={ --Offset Obelisk
+   type = 'fixed',
+   fixed = {{-.3125, -.5, -.25, .3125, .5, .375}}
+}
+
+colbox_9_0 ={ --Stacked
+   type = 'fixed',
+   fixed = {{-.3125, -.5, -.375, .375, .375, .375}}
+}
