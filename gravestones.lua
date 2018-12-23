@@ -12,6 +12,12 @@ shapes = { --mesh identifier, shape, col
    {'_9', 'Stacked', colbox_9_0, colbox_9_0},
    }
 
+local group = {oddly_breakable_by_hand=2, not_in_creative_inventory=1}
+
+if minetest.settings:get_bool('tombs.creative') then
+   group = {oddly_breakable_by_hand=2}
+end
+
 for i in ipairs (shapes) do
    local mesh = shapes[i][1]
    local shape = shapes[i][2]
@@ -28,7 +34,7 @@ for i in ipairs (shapes) do
       light_source = light,
       selection_box = centered_col,
       collision_box = centered_col,
-      groups = {cracky=2, oddly_breakable_by_hand=1,},
+      groups = group,
       on_construct = function(pos)
          local meta = minetest.get_meta(pos)
          meta:set_string('formspec', tomb_formspec)
@@ -50,7 +56,7 @@ for i in ipairs (shapes) do
       light_source = light,
       selection_box = offset_col,
       collision_box = offset_col,
-      groups = {cracky=2, oddly_breakable_by_hand=1,},
+      groups = group,
       on_construct = function(pos)
          local meta = minetest.get_meta(pos)
          meta:set_string('formspec', tomb_formspec)
