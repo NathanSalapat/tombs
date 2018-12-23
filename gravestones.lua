@@ -1,4 +1,4 @@
-function tombs.register_stones(recipe, name, desc, textures)
+function tombs.register_stones(recipe, name, desc, textures, light)
 shapes = { --mesh identifier, shape, col
    {'_0', 'Rectangle', colbox_0_0, colbox_0_1},
    {'_1', 'Cross', colbox_1_0, colbox_1_1},
@@ -25,6 +25,7 @@ for i in ipairs (shapes) do
       tiles = {textures..'.png'},
       paramtype = 'light',
       paramtype2 = 'facedir',
+      light_source = light,
       selection_box = centered_col,
       collision_box = centered_col,
       groups = {cracky=2, oddly_breakable_by_hand=1,},
@@ -46,6 +47,7 @@ for i in ipairs (shapes) do
       tiles = {textures..'.png'},
       paramtype = 'light',
       paramtype2 = 'facedir',
+      light_source = light,
       selection_box = offset_col,
       collision_box = offset_col,
       groups = {cracky=2, oddly_breakable_by_hand=1,},

@@ -1,3 +1,5 @@
 default
 bones
 wool?
+bakedclay?
+caverealms?

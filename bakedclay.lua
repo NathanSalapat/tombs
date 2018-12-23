@@ -1,4 +1,4 @@
-local dyes = {
+local bakedclay = {
 	{"white",      "White"},
 	{"grey",       "Grey"},
 	{"black",      "Black"},
@@ -16,7 +16,7 @@ local dyes = {
 	{"dark_green", "Dark Green"},
 }
 
-for i = 1, #dyes do
-	local name, desc = unpack(dyes[i])
-   tombs.register_stones('wool:'..name, 'w'..name, desc..' Wool', 'wool_'..name)
+for i = 1, #bakedclay do
+	local name, desc = unpack(bakedclay[i])
+   tombs.register_stones('bakedclay:'..name, 'bc'..name, desc..' Bakedclay', 'baked_clay_'..name)
 end
