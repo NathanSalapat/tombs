@@ -82,3 +82,13 @@ colbox_9_0 ={ --Stacked
    type = 'fixed',
    fixed = {{-.3125, -.5, -.375, .375, .375, .375}}
 }
+
+colbox_11_0 ={ --Centered Sam
+   type = 'fixed',
+   fixed = {{-.3125, -.5, -.125, .3125, .4375, .125}}
+}
+
+colbox_11_1 ={ --Offset Sam
+   type = 'fixed',
+   fixed = {{-.3125, -.5, .125, .3125, .4375, .375}}
+}

@@ -19,7 +19,3 @@ machine_formspec_offset =
 'button[0,2.5;2,1;centered;Switch]'..
 'list[current_name;output;3,0;5,3]'..
 'list[current_player;main;0,3.5;8,4]'
-
-tomb_formspec =
-'size[4,2]'..
-'field[1,1;3,1;text;Write Something, Enter to Close;${infotext}]'

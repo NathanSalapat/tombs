@@ -10,6 +10,8 @@ shapes = { --mesh identifier, shape, col
    {'_7', 'Celtic Cross', colbox_7_0, colbox_7_1},
    {'_8', 'Obelisk', colbox_8_0, colbox_8_1},
    {'_9', 'Stacked', colbox_9_0, colbox_9_0},
+   {'_10', 'Rounded', colbox_0_0, colbox_0_1},
+   {'_11', 'Sam', colbox_11_0, colbox_11_1},
    }
 
 local group = {oddly_breakable_by_hand=2, not_in_creative_inventory=1}
@@ -37,12 +39,20 @@ for i in ipairs (shapes) do
       groups = group,
       on_construct = function(pos)
          local meta = minetest.get_meta(pos)
-         meta:set_string('formspec', tomb_formspec)
+         meta:set_string('formspec', 'field[text;;${text}]')
          meta:set_string('infotext', '')
+      end,
+      after_place_node = function(pos, placer)
+         local meta = minetest.get_meta(pos)
+         meta:set_string('owner',placer:get_player_name())
       end,
       on_receive_fields = function(pos, formname, fields, sender)
          local meta = minetest.get_meta(pos)
-         meta:set_string('infotext', fields.text)
+         if sender:get_player_name() == meta:get_string('owner') then
+            if not fields.text then return end
+            meta:set_string('text', fields.text)
+            meta:set_string('infotext', fields.text)
+         end
       end,
    })
 
@@ -59,12 +69,20 @@ for i in ipairs (shapes) do
       groups = group,
       on_construct = function(pos)
          local meta = minetest.get_meta(pos)
-         meta:set_string('formspec', tomb_formspec)
+         meta:set_string('formspec', 'field[text;;${text}]')
          meta:set_string('infotext', '')
+      end,
+      after_place_node = function(pos, placer)
+         local meta = minetest.get_meta(pos)
+         meta:set_string('owner',placer:get_player_name())
       end,
       on_receive_fields = function(pos, formname, fields, sender)
          local meta = minetest.get_meta(pos)
-         meta:set_string('infotext', fields.text)
+         if sender:get_player_name() == meta:get_string('owner') then
+            if not fields.text then return end
+            meta:set_string('text', fields.text)
+            meta:set_string('infotext', fields.text)
+         end
       end,
    })
 
@@ -78,10 +96,10 @@ end
 function tombs.crafting(input, var)
    local name = tombs.recipes[input]
    output =
-   {'tombs:'..name..'_0_'..var, 'tombs:'..name..'_1_'..var, 'tombs:'..name..'_2_'..var,
-    'tombs:'..name..'_3_'..var, 'tombs:'..name..'_4_'..var, 'tombs:'..name..'_5_'..var,
-    'tombs:'..name..'_6_'..var, 'tombs:'..name..'_7_'..var, 'tombs:'..name..'_8_'..var,
-    'tombs:'..name..'_9_'..var,
+   {'tombs:'..name..'_0_'..var, 'tombs:'..name..'_1_'..var,  'tombs:'..name..'_2_'..var,
+    'tombs:'..name..'_3_'..var, 'tombs:'..name..'_4_'..var,  'tombs:'..name..'_5_'..var,
+    'tombs:'..name..'_6_'..var, 'tombs:'..name..'_7_'..var,  'tombs:'..name..'_8_'..var,
+    'tombs:'..name..'_9_'..var, 'tombs:'..name..'_10_'..var, 'tombs:'..name..'_11_'..var,
     }
    return output
 end
