@@ -12,6 +12,9 @@ shapes = { --mesh identifier, shape, col
    {'_9', 'Stacked', colbox_9_0, colbox_9_0},
    {'_10', 'Rounded', colbox_0_0, colbox_0_1},
    {'_11', 'Sam', colbox_11_0, colbox_11_1},
+   {'_12', '5 Pointed Star', colbox_12_0, colbox_12_1},
+   {'_13', '6 Pointed Star', colbox_12_0, colbox_12_1},
+   {'_14', 'Octothorp', colbox_14_0, colbox_14_1},
    }
 
 local group = {oddly_breakable_by_hand=2, not_in_creative_inventory=1}
@@ -96,10 +99,11 @@ end
 function tombs.crafting(input, var)
    local name = tombs.recipes[input]
    output =
-   {'tombs:'..name..'_0_'..var, 'tombs:'..name..'_1_'..var,  'tombs:'..name..'_2_'..var,
-    'tombs:'..name..'_3_'..var, 'tombs:'..name..'_4_'..var,  'tombs:'..name..'_5_'..var,
-    'tombs:'..name..'_6_'..var, 'tombs:'..name..'_7_'..var,  'tombs:'..name..'_8_'..var,
-    'tombs:'..name..'_9_'..var, 'tombs:'..name..'_10_'..var, 'tombs:'..name..'_11_'..var,
+   {'tombs:'..name..'_0_'..var,  'tombs:'..name..'_1_'..var,  'tombs:'..name..'_2_'..var,
+    'tombs:'..name..'_3_'..var,  'tombs:'..name..'_4_'..var,  'tombs:'..name..'_5_'..var,
+    'tombs:'..name..'_6_'..var,  'tombs:'..name..'_7_'..var,  'tombs:'..name..'_8_'..var,
+    'tombs:'..name..'_9_'..var,  'tombs:'..name..'_10_'..var, 'tombs:'..name..'_11_'..var,
+    'tombs:'..name..'_12_'..var, 'tombs:'..name..'_13_'..var, 'tombs:'..name..'_14_'..var,
     }
    return output
 end

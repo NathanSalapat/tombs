@@ -92,3 +92,23 @@ colbox_11_1 ={ --Offset Sam
    type = 'fixed',
    fixed = {{-.3125, -.5, .125, .3125, .4375, .375}}
 }
+
+colbox_12_0 ={ --Centered Star
+   type = 'fixed',
+   fixed = {{-.375, -.5, -.125, .375, .375, .125}}
+}
+
+colbox_12_1 ={ --Offset Star
+   type = 'fixed',
+   fixed = {{-.375, -.5, .125, .375, .375, .375}}
+}
+
+colbox_14_0 ={ --Centered Octothorp
+   type = 'fixed',
+   fixed = {{-.4375, -.5, -.0625, .4375, .375, .0625}}
+}
+
+colbox_14_1 ={ --Offset Octothorp
+   type = 'fixed',
+   fixed = {{-.4375, -.5, .25, .4375, .375, .375}}
+}
