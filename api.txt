@@ -1,3 +1,7 @@
 You can easily add custom materials for the tombstones by simply calling
-tombs.register_stones('modname:nodename', 'nodename', 'description', 'texture')
+tombs.register_stones('modname:nodename', 'nodename', 'description', 'texture', #Light_Level)
+modname:nodename is the recipe node used in the input slot.
+nodename is used internally, keep it short but specific to avoid conflicts.
+description shows when hovering over the node in inventory.
 DO NOT include the extension for the texture or you will get an error.
+#Light_Level is optional if used it should be a number 1-14.

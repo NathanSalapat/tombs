@@ -1,5 +1,5 @@
 function tombs.register_stones(recipe, name, desc, textures, light)
-shapes = { --mesh identifier, shape, col
+local shapes = { --mesh identifier, shape, col
    {'_0', 'Rectangle', colbox_0_0, colbox_0_1},
    {'_1', 'Cross', colbox_1_0, colbox_1_1},
    {'_2', 'Pointed', colbox_0_0, colbox_0_1},
@@ -20,7 +20,7 @@ shapes = { --mesh identifier, shape, col
 local group = {oddly_breakable_by_hand=2, not_in_creative_inventory=1}
 
 if minetest.settings:get_bool('tombs.creative') then
-   group = {oddly_breakable_by_hand=2}
+   group = {oddly_breakable_by_hand=2, cracky=3}
 end
 
 for i in ipairs (shapes) do
@@ -98,7 +98,7 @@ end
 
 function tombs.crafting(input, var)
    local name = tombs.recipes[input]
-   output =
+   local output =
    {'tombs:'..name..'_0_'..var,  'tombs:'..name..'_1_'..var,  'tombs:'..name..'_2_'..var,
     'tombs:'..name..'_3_'..var,  'tombs:'..name..'_4_'..var,  'tombs:'..name..'_5_'..var,
     'tombs:'..name..'_6_'..var,  'tombs:'..name..'_7_'..var,  'tombs:'..name..'_8_'..var,

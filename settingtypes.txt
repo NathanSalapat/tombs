@@ -1,5 +1,7 @@
 tombs.creative (Show nodes in creative inventory?) bool false
-tombs.load_wool (Support wool mod?) bool true
-tombs.load_default (Support default mod?) bool true
 tombs.load_bakedclay (Support bakedclay mod?) bool true
 tombs.load_caverealms (Support caverealms mod?) bool true
+tombs.load_darkage (Support darkage mod?) bool true
+tombs.load_default (Support default mod?) bool true
+tombs.load_ethereal (Support ethereal mod?) bool true
+tombs.load_wool (Support wool mod?) bool true

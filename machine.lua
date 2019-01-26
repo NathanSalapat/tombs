@@ -65,8 +65,12 @@ minetest.register_node('tombs:machine', {
          end
       end
       if listname == 'tool' then
-         if stack:get_name() == ('bones:bones') then
+         if stack:get_name() == 'bones:bones' then
             return 99
+         elseif stack:get_name() == 'tombs:chisel' then
+            return 1
+         elseif stack:get_name() == 'mychisel:chisel' then
+            return 1
          else
             return 0
          end
@@ -91,7 +95,13 @@ minetest.register_node('tombs:machine', {
          inv:set_list('output', {})
       elseif listname == 'output' then
          input_stack:take_item(1)
-         tool_stack:take_item(1)
+         if tool_stack:get_name() == 'bones:bones' then
+            tool_stack:take_item(1)
+         elseif tool_stack:get_name() == 'tombs:chisel' then
+            tool_stack:add_wear(65535 / 48)
+         elseif tool_stack:get_name() == 'mychisel:chisel' then
+            tool_stack:add_wear(65535 / 48)
+         end
          inv:set_stack('tool',1,tool_stack)
          inv:set_stack('input',1,input_stack)
          if inv:is_empty('input') then
@@ -112,8 +122,11 @@ function tombs.populate_output(pos)
    local tool_stack = inv:get_stack('tool', 1)
    local input = input_stack:get_name()
    local var = meta:get_string('var')
-   if tombs.nodes[input] and tool_stack:get_name() == ('bones:bones') then
-      inv:set_list('output', tombs.crafting(input, var))
+   if tombs.nodes[input] then
+      if tool_stack:get_name() == 'bones:bones' or tool_stack:get_name() == 'tombs:chisel'
+      or tool_stack:get_name() == 'mychisel:chisel' then
+         inv:set_list('output', tombs.crafting(input, var))
+      end
    else
       inv:set_list('output', {})
    end
