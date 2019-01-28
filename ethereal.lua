@@ -10,6 +10,5 @@ tombs.register_stones('ethereal:mushroom', 'mushroomcap', 'Mushroom Cap', 'mushr
 tombs.register_stones('ethereal:mushroom_pore', 'mushroompore', 'Mushroom Pore', 'mushroom_pore')
 tombs.register_stones('ethereal:palm_wood', 'palm_wood', 'Palm', 'moretrees_palm_wood')
 tombs.register_stones('ethereal:redwood_wood', 'redwood_wood', 'Redwood', 'redwood_wood')
-tombs.register_stones('ethereal:palm_wood', 'palm_wood', 'Palm', 'moretrees_palm_wood')
 tombs.register_stones('ethereal:willow_wood', 'willow_wood', 'Willow', 'willow_wood')
 tombs.register_stones('ethereal:yellow_wood', 'yellow_wood', 'Healing Wood', 'yellow_wood')

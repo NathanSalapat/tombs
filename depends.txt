@@ -1,5 +1,12 @@
 default
-bones
-wool?
 bakedclay?
+bones?
 caverealms?
+darkage?
+ethereal?
+geominer?
+maple?
+moreores?
+moretrees?
+mychisel?
+wool?

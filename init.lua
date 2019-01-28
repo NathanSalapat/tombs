@@ -34,6 +34,26 @@ if minetest.get_modpath('ethereal') and (minetest.settings:get_bool('tombs.load_
    print 'Tombs loaded ethereal support.'
 end
 
+if minetest.get_modpath('geominer') and (minetest.settings:get_bool('tombs.load_geominer')) then
+   dofile(minetest.get_modpath('tombs')..'/geominer.lua')
+   print 'Tombs loaded geominer support.'
+end
+
+if minetest.get_modpath('maple') and (minetest.settings:get_bool('tombs.load_maple')) then
+   dofile(minetest.get_modpath('tombs')..'/maple.lua')
+   print 'Tombs loaded maple support.'
+end
+
+if minetest.get_modpath('moreores') and (minetest.settings:get_bool('tombs.load_moreores')) then
+   dofile(minetest.get_modpath('tombs')..'/moreores.lua')
+   print 'Tombs loaded moreores support.'
+end
+
+if minetest.get_modpath('moretrees') and (minetest.settings:get_bool('tombs.load_moretrees')) then
+   dofile(minetest.get_modpath('tombs')..'/moretrees.lua')
+   print 'Tombs loaded moretrees support.'
+end
+
 if minetest.get_modpath('wool') and (minetest.settings:get_bool('tombs.load_wool')) then
    dofile(minetest.get_modpath('tombs')..'/wool.lua')
    print 'loaded wool support.'
