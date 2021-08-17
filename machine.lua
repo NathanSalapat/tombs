@@ -104,6 +104,13 @@ minetest.register_node('tombs:machine', {
          end
          inv:set_stack('tool',1,tool_stack)
          inv:set_stack('input',1,input_stack)
+         local stone_stack = inv:get_stack(listname,  index)
+         if not stone_stack:is_empty() and stone_stack:get_name()~=stack:get_name() then
+            local player_inv = player:get_inventory()
+            if player_inv:room_for_item('main', stone_stack) then
+               player_inv:add_item('main', stone_stack)
+            end
+         end
          if inv:is_empty('input') then
             inv:set_list('output', {})
          elseif inv:is_empty('tool') then
@@ -113,6 +120,16 @@ minetest.register_node('tombs:machine', {
          end
       end
    end,
+   allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+      local meta = minetest.get_meta(pos)
+      local inv = meta:get_inventory()
+      local input_stack = inv:get_stack(listname,  index)
+      local player_inv = player:get_inventory()
+      if not player_inv:room_for_item('main', input_stack) then
+         return 0
+      else return stack:get_count()
+      end
+   end
 })
 
 function tombs.populate_output(pos)
@@ -125,6 +142,7 @@ function tombs.populate_output(pos)
    if tombs.nodes[input] then
       if tool_stack:get_name() == 'bones:bones' or tool_stack:get_name() == 'tombs:chisel'
       or tool_stack:get_name() == 'mychisel:chisel' then
+         inv:set_list('output', {})
          inv:set_list('output', tombs.crafting(input, var))
       end
    else
